@@ -30,6 +30,7 @@
     "test": "gulp test"
   },
   "dependencies": {
+    "@enum-all/gender": "^1.1.0",
     "cheerio": "^1.0.0-rc.2",
     "funfix-core": "^6.2.2",
     "lodash": "^4.17.4"
