@@ -15,8 +15,7 @@
   },
   "homepage": "https://github.com/wiki-analyzer/gender#readme",
   "devDependencies": {
-    "@types/cheerio": "^0.22.7",
-    "@types/lodash": "^4.14.98",
+    "@types/lodash.head": "^4.0.3",
     "@types/mocha": "^2.2.47",
     "@types/request-promise": "^4.1.41",
     "del": "^3.0.0",
@@ -33,9 +32,8 @@
   "dependencies": {
     "@enum-all/gender": "^1.1.0",
     "baidu-aip-sdk": "^2.1.0",
-    "cheerio": "^1.0.0-rc.2",
     "funfix-core": "^6.2.2",
-    "lodash": "^4.17.4",
+    "lodash.head": "^4.0.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   }
