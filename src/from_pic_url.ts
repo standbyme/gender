@@ -3,7 +3,7 @@ import { Option } from 'funfix-core'
 import * as request from 'request-promise'
 
 import { gender_string_enum__map } from './string_enum__map'
-import { safe_get_from_map } from './utility'
+import { gender_lang_to_gender_enum } from './utility'
 
 export default async function (pic_url: string): Promise<Option<Gender>> {
     const options = {
@@ -23,6 +23,6 @@ export default async function (pic_url: string): Promise<Option<Gender>> {
 
     const result = await client.detect(img_base64, { face_fields: 'gender' })
 
-    if (result.result_num > 0) return Option.of(result.result[0].gender).chain(gender_lang => safe_get_from_map(gender_string_enum__map, gender_lang))
+    if (result.result_num > 0) return Option.of(result.result[0].gender).chain(gender_lang_to_gender_enum)
     else return Option.none()
 }
