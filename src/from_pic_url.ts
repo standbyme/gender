@@ -1,7 +1,11 @@
 import Gender from '@enum-all/gender'
+import { Option } from 'funfix-core'
 import * as request from 'request-promise'
 
-export default async function (pic_url: string) {
+import { gender_string_enum__map } from './string_enum__map'
+import { safe_get_from_map } from './utility'
+
+export default async function (pic_url: string): Promise<Option<Gender>> {
     const options = {
         url: pic_url,
         encoding: 'base64',
@@ -18,5 +22,7 @@ export default async function (pic_url: string) {
     const client = new AipFaceClient(APP_ID, API_KEY, SECRET_KEY)
 
     const result = await client.detect(img_base64, { face_fields: 'gender' })
-    console.log(result)
+
+    if (result.result_num > 0) return Option.of(result.result[0].gender).chain(gender_lang => safe_get_from_map(gender_string_enum__map, gender_lang))
+    else return Option.none()
 }
