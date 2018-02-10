@@ -27,7 +27,9 @@
     "typescript": "^2.7.1"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "prepare": "npm run build",
+    "build": "gulp compile"
   },
   "dependencies": {
     "@enum-all/gender": "^1.1.0",

@@ -11,12 +11,15 @@ gulp.task('clean', function () {
 })
 
 gulp.task('compile', gulp.series('clean', function compile_func(done) {
-    return tsProject.src()
+    const tsResult = tsProject.src()
         .pipe(tsProject())
         .on('error', function () {
             done('TS compile fail')
         })
-        .js.pipe(gulp.dest('dist'))
+
+    tsResult.js.pipe(gulp.dest('dist'))
+    tsResult.dts.pipe(gulp.dest('dist'))
+    return tsResult
 }))
 
 gulp.task('test', gulp.series('compile', function test_func() {
