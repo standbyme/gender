@@ -10,9 +10,9 @@ describe('From Pic URL', function () {
     })
 
     it('should return Some if gender can be inferred', async function () {
-        const result__opt = await from_pic_url('https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2512929955,2641147446&fm=58&bpow=653&bpoh=900')
+        const result__opt = await from_pic_url('https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=342d1b5192eef01f4d141fc3d8c5fe18/1e30e924b899a901ccaaf9031b950a7b0208f56c.jpg')
         assert(result__opt.nonEmpty())
         const result = result__opt.get()
-        assert.equal(result, Gender.male)
+        assert.equal(result, Gender.female)
     })
 })
