@@ -3,7 +3,7 @@ import { Option } from 'funfix-core'
 import { gender_string_enum__map } from './string_enum__map'
 import { gender_lang_to_gender_enum } from './utility'
 
-const gender = [/，(男|女)，/, /^(男|女)，/, /：(男|女)，/]
+const gender = [/，(男|女)，/, /^(男|女)，/, /：(男|女)，/,/(男|女)歌手/,/(男|女)演员/]
 const _head = require('lodash.head');
 
 function reg_match(reg: RegExp, str: string): Option<RegExpExecArray> {
